@@ -1,0 +1,90 @@
+#cards{
+  display: flex;
+  flex-wrap:wrap;
+  width: 90%; /* 新增：寬度和標頭一致 */
+  margin: 0 auto;  /* 新增：置中 */
+}
+.card{
+  /*
+  flex-basis:可以控制 item 在容器裡佔的寬度，在這裡我們使用百分比，就是以容器的寬度為 100%。
+  flex-grow :分配剩餘空間，設定 0，意思是不要分配剩餘空間，1則是要
+  flex-shrink：如果視窗變小，flex item 就需要收縮，減少自己所佔的空間。設定 1，讓元素等比例收縮
+  */
+  flex: 7% 1 1;  /*flex 是一個縮寫*/
+
+  height: 8vw;   /*片高度設定為 8vw，代表視窗大小的 8% */
+  
+
+  display: flex;           /*為了要控制 .card 內部的數字和花色，我們也讓 .card 變成一個 flex 容器*/
+  flex-direction: column;  /*card裡面的元素排列順序從上到下，再從左到右*/
+  justify-content: space-around;  /*讓元素聚集在中間，且保持均分的間隔*/
+  border: 2px solid #e0e0e0;
+  margin: 3px;
+  box-sizing: border-box; /* 設定 box-sizing*/
+}
+
+.card img {
+  max-width: 30%;
+  align-self: center;
+}
+
+.card p {
+  margin: 3px;
+  font-size: 10px;
+}
+
+.card p:last-child {   /*:last-child 指的是在同一個階層的同類元素中，選出最後面的元素。*/
+  transform: rotate(180deg);
+}
+
+.back{
+  background: url('https://assets-lighthouse.alphacamp.co/uploads/image/file/9222/ExportedContentImage_00.png');
+  background-size: cover;
+}
+
+.paired{
+  background-color: #dae0e3;
+}
+
+#header{
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 85%;
+}
+
+#header .title{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end 
+}
+
+#header .title img {
+  max-width: 3em;
+}
+
+#header .title h3 {
+  padding-left: 0.5em;
+}
+
+#header .score {
+  margin: 0;
+  color: #6c90ac;
+}
+
+#header .tried {
+  margin-top: 0;
+}
+
+.wrong {
+  animation-name: wrongAnimation;
+  animation-duration: 0.2s;      /*動畫持續時間*/
+  animation-iteration-count: 5;  /*動畫播幾次*/
+}
+
+@keyframes wrongAnimation{
+  to{
+    border: 2px solid #ffd54f;
+  }
+}
